@@ -1,0 +1,12 @@
+contract/target
+.soroban
+node_modules
+.history
+.DS_Store
+contract/test_snapshots
+dist
+.env
+target/
+packages/ziriz-examples/.env
+packages/contract-client/node_modules
+packages/contract-client/dist

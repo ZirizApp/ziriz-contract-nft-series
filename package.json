@@ -1,0 +1,32 @@
+{
+	"name": "ziriz-contract",
+	"version": "1.0.0",
+	"description": "",
+	"author": "dev@ziriz.app",
+	"license": "ISC",
+	"workspaces": [
+		"packages/*"
+	],
+	"scripts": {
+		"contract:test": "cd contract && cargo test",
+		"contract:build": "loam build",
+		"contract:clippy-fix": "cd ../contract && cargo clippy --  -D clippy::pedantic",
+		"contract:clippy": "cd contract && cargo clippy --  -D clippy::pedantic",
+		"contract:format": "cd contract && cargo fmt",
+		"setup": "cargo install soroban-cli --debug --version 21.0.0-rc.1 --root node_modules/.bin && cargo install loam-cli --debug --root ./node_modules/.bin && cd node_modules/.bin && ln -s ./bin/* .",
+		"soroban:show-xlm": "soroban lab token id --asset native --network testnet",
+		"smartdeploy:publish": "cd contract && smartdeploy call smartdeploy --fee 10000 -- publish --contract-name ziriz-nft --wasm-file-path target/loam/ziriz_series.wasm --author default",
+		"smartdeploy:deploy": "cd contract && smartdeploy call smartdeploy --fee 10000 -- publish --contract-name ziriz-nft --wasm-file-path target/loam/ziriz_series.wasm--author default",
+		"contract:link": "read -p \"Enter contract id: \" contract && cd contract && soroban contract bindings typescript --network testnet --contract-id $contract --output-dir ./packages/contract-client",
+		"contract:deploy-testnet": "soroban contract deploy --wasm target/loam/ziriz_series.wasm --source alice --network testnet",
+		"prepare": "husky"
+	},
+	"devDependencies": {
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.5",
+		"prettier": "3.3.0"
+	},
+	"lint-staged": {
+		"packages/**": "prettier --write --ignore-unknown"
+	}
+}
