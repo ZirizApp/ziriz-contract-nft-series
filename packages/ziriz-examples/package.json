@@ -7,7 +7,7 @@
 		"tsc": "tsc --init",
 		"build": "tsc",
 		"test": "jest",
-		"contract:init": "tsc && node dist/run.js",
+		"contract:init": "tsc && node dist/init.js",
 		"contract:create-mint": "tsc && node dist/create-and-mint.js"
 	},
 	"author": "dev@ziriz.app",
