@@ -32,7 +32,7 @@ if (typeof window !== 'undefined') {
 export const networks = {
 	testnet: {
 		networkPassphrase: 'Test SDF Network ; September 2015',
-		contractId: 'CAEPJJFLW26IQ7YSTVUJQAUMKBXGVFI2FSZPRT3UGZTOAME4KSS5HY4A',
+		contractId: 'CAOTCWAWL3D4ZJKPLU5OH7UFAT24Q6FKFYLIRIFKE633NVHKQQNMG6JN',
 	},
 } as const
 
@@ -70,7 +70,7 @@ export const Errors = {}
 
 export interface Client {
 	/**
-	 * Construct and simulate a init transaction. Returns an `AssembledTransaction` object which will have a `result` field containing the result of the simulation. If this transaction changes contract state, you will need to call `signAndSend()` on the returned object.   *
+	 * Construct and simulate a init transaction. Returns an `AssembledTransaction` object which will have a `result` field containing the result of the simulation. If this transaction changes contract state, you will need to call `signAndSend()` on the returned object.
 	 * Does comment show up?
 	 */
 	init: (
@@ -401,7 +401,7 @@ export interface Client {
 	) => Promise<AssembledTransaction<null>>
 
 	/**
-	 * Construct and simulate a owner_get transaction. Returns an `AssembledTransaction` object which will have a `result` field containing the result of the simulation. If this transaction changes contract state, you will need to call `signAndSend()` on the returned object.   *
+	 * Construct and simulate a owner_get transaction. Returns an `AssembledTransaction` object which will have a `result` field containing the result of the simulation. If this transaction changes contract state, you will need to call `signAndSend()` on the returned object.
 	 * Returns the owner of the contract
 	 */
 	owner_get: (options?: {
@@ -422,7 +422,7 @@ export interface Client {
 	}) => Promise<AssembledTransaction<Option<string>>>
 
 	/**
-	 * Construct and simulate a owner_set transaction. Returns an `AssembledTransaction` object which will have a `result` field containing the result of the simulation. If this transaction changes contract state, you will need to call `signAndSend()` on the returned object.   *
+	 * Construct and simulate a owner_set transaction. Returns an `AssembledTransaction` object which will have a `result` field containing the result of the simulation. If this transaction changes contract state, you will need to call `signAndSend()` on the returned object.
 	 * Sets the owner of the contract. If one already set it transfers it to the new owner, if signed by owner.
 	 */
 	owner_set: (
@@ -446,7 +446,7 @@ export interface Client {
 	) => Promise<AssembledTransaction<null>>
 
 	/**
-	 * Construct and simulate a redeploy transaction. Returns an `AssembledTransaction` object which will have a `result` field containing the result of the simulation. If this transaction changes contract state, you will need to call `signAndSend()` on the returned object.   *
+	 * Construct and simulate a redeploy transaction. Returns an `AssembledTransaction` object which will have a `result` field containing the result of the simulation. If this transaction changes contract state, you will need to call `signAndSend()` on the returned object.
 	 * Redeploy the contract to a Wasm hash
 	 */
 	redeploy: (

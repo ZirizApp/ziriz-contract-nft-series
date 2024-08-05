@@ -17,7 +17,7 @@ const initContract = async () => {
 			admin: client.publicKey,
 			creator: client.publicKey,
 			metadata_url:
-				'https://link.storjshare.io/s/jwzwr227mcqhf6uemcqwl5xsp5bq/ziriz/1706056092982&blur.json?wrap=0',
+				'https://link.storjshare.io/s/jvwh64b6milx7jmwv26r75xk6vka/ziriz-test/1722505143175&3280d5442e76fcf584dd8dd4873c6c5dd2ff163f2cae58e2846e1c1e7325f8b3.json?wrap=0',
 		})
 
 		const seriesId = await createSeries?.signAndSend()
@@ -29,6 +29,8 @@ const initContract = async () => {
 		})
 
 		await mint?.signAndSend()
+
+		console.log('Series ID:', seriesId?.result)
 	} catch (e) {
 		console.log(e)
 		const error = e as AxiosError

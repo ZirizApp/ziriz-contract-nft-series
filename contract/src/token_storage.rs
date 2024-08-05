@@ -7,15 +7,15 @@ use crate::{
 pub fn read_supply(e: &Env) -> u128 {
     let key = DataKey::Supply;
     e.storage()
-        .instance()
-        .get::<DataKey, u128>(&key)
+        .persistent()
+        .get(&key)
         .unwrap_or(0)
 }
 
 pub fn increment_supply(e: &Env) -> u128 {
     let key = DataKey::Supply;
     let next_supply = read_supply(e) + 1;
-    e.storage().instance().set(&key, &next_supply);
+    e.storage().persistent().set(&key, &next_supply);
     next_supply
 }
 
@@ -36,12 +36,12 @@ pub fn increment_balance(e: &Env, id: &Address) {
 
 pub fn write_token_owner(e: &Env, token_id: u128, series_id: u128, owner: &Address) {
     let key = DataKey::TokenOwner(token_id, series_id);
-    e.storage().instance().set(&key, owner);
+    e.storage().persistent().set(&key, owner);
 }
 
 pub fn read_token_owner(e: &Env, token_id: u128, series_id: u128) -> Option<Address> {
     let key = DataKey::TokenOwner(token_id, series_id);
-    e.storage().instance().get(&key)
+    e.storage().persistent().get(&key)
 }
 
 pub fn add_owned_token(env: &Env, address: &Address, token_id: u128, series_id: u128) {
